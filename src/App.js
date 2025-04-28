@@ -106,6 +106,8 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
           <div className="sport-content">
             <h1 className="header-title">Sport Nyheter</h1>
             <p className="small-text">Fusce convallis, mauris imperdiet gravida bibendum</p>
+            <p className="medium-text">Fusce convallis, mauris imperdiet gravida bibendum</p>
+            <p className="large-text">Fusce convallis, mauris imperdiet gravida bibendum</p>
           </div>
         );
       case "politik":
@@ -116,19 +118,35 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
               <ImageMagnify
                 imageProps={{
                   alt: "Politik Bild",
-                  style: { width: '1000', height: '300px' }, 
-                  src: ["/slott.png", "/vattenmelon.png", "/politik.png"][currentImageIndex]
+                  style: { width: '100%', height: 'auto' }, 
+                  src: ["/slott.png", "/baseboll.png", "/politik.png"][currentImageIndex]
                 }}
                 magnifiedImageProps={{
-                  src: ["/slott.png", "/vattenmelon.png", "/politik.png"][currentImageIndex],
-                  width: 1000,
-                  height: 200
+                  src: ["/slott.png", "/baseboll.png", "/politik.png"][currentImageIndex],
+                  width: 1200,
+                  height: 800
                 }}
                 className="carousel-image"
               />
               <div className="carousel-controls">
-                <button onClick={goPrev}>Förra</button>
-                <button onClick={goNext}>Nästa</button>
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goPrev();
+                  }}
+                  className="carousel-button prev-button"
+                >
+                  Förra
+                </button>
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goNext();
+                  }}
+                  className="carousel-button next-button"
+                >
+                  Nästa
+                </button>
               </div>
             </div>
           </div>
@@ -176,7 +194,7 @@ Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapi
 function Footer() {
   return (
     <footer className="footer">
-      <p>&copy; 2025 Företagsnamn. Alla rättigheter reserverade.</p>
+      <p>&copy; Nyheter du kan lita på.</p>
     </footer>
   );
 }
